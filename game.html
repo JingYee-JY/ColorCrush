@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<!--
+/* Copyright (c) 2017 MIT 6.813/6.831 course staff, all rights reserved.
+ * Redistribution of original or derived work requires permission of course staff.
+ */
+-->
+
+	<head>
+		<meta charset="utf-8">
+		<title>Color Crush</title>
+		
+		<link rel="stylesheet" 
+    	href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap">
+		
+		<link rel="stylesheet" href="./css/mainLayout.css">
+		<link rel="stylesheet" href="./css/style.css">
+		
+		<!-- Use mobile-aware viewport -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		
+		<!-- Load any supplemental Javascript libraries here -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/2.4.2/seedrandom.js"></script>
+		<script src="./js/candy.js"></script>
+		<script src="./js/board.js"></script>
+		<script src="./js/rules.js"></script>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3" id="firstColumn">
+					<div class="top">
+						<label id="goalLabel">Goal:</label>
+						<label id="scoreLabel">1200 pt</label>
+					</div>
+				</div>
+				
+				<div class="col-md-6" id="mainColumn">
+					<div id="cover"></div>
+					<div id="gameBoard"></div>
+					<canvas id="canvas" width="320" height="320">
+						<p>Canvas not supported on your browser.</p>
+					</canvas>
+				</div>
+				<div class="col-md-3" id="lastColumn">
+					<p>Drag & Drop the colours to make a set of three. </p>
+				</div>
+			</div>
+		</div>
+		<div class="final hide">
+			<img class="icon" src="./graphics/image.png">
+			<p class="end">Well done!</p>
+			<button class="restart" onclick="window.location.href='index.html'"> 
+				<p class="words"><img src="./graphics/restart.png" class="arrowHead"> Play again</p>
+			</button>
+			<button class="home" onclick="window.location.href='https://gimme.sg/activations/dementia/';">
+				<p class="words"><img src="./graphics/home.png" class="arrowHead"> Back to home</p>
+			</button>
+		</div>
+		<script src="./js/handler.js"></script>
+		<script src="./js/timer.js"></script>
+	</body>
+
+</html>

@@ -1,0 +1,251 @@
+/*mobile*/
+
+body {
+  font-family: 'noto';
+  width: 100vmin;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  overflow: hidden;
+  background-color: #F6D7DC;
+}
+
+*{
+  font-family: 'Lilita One', cursive;
+}
+
+.start, .howToPlay{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  height: auto;
+  text-align: center;
+  min-height: 100vh;
+}
+
+
+
+.howToPlay{
+  background-color: #E7F6F5;
+}
+
+.game-title{
+  margin-top: 10%;
+  align-self: center;
+  width: 80%;
+}
+
+.title{
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.preview{
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(2,25%);
+  gap: 10px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.preview img {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.startButton,.restart,.home{
+    width: 100%;
+    position: relative;
+    align-self: center;
+    background-color: #FF2C5F;
+    box-shadow: 0px 8px #AC1B3E;
+    color: white;
+    border: 0px;
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 5% 5%;
+    margin-bottom: 30px;
+    font-size: 25px;
+}
+
+.home{
+  background-color: #AC1B3E;
+  box-shadow: 0px 8px #FF2C5F;
+}
+
+.words{
+  font-size: 20px;
+  width: 100%;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-weight: 600;
+}
+
+.arrowHead{
+  margin-right: 10px;
+  max-width: 15px;
+}
+
+a.startButton {
+  text-align: center;
+}
+
+.hide{
+  display: none;
+  visibility: hidden;
+}
+
+.instruction{
+  border: 2px solid #747474;
+  width: calc(100% - 40px);
+  margin: 0 auto;
+  padding:0 20px;
+  box-sizing: border-box;
+  font-size: 19px;
+  text-align: left;
+  max-height: 50vh;
+  overflow-y: scroll;
+  }
+
+h1{
+  font-size: 26px;
+  color: #474747;
+  margin-top: 30px;
+}
+
+.image img{
+  width: 23%;
+}
+
+.example{
+  display: grid;
+  align-self: center;
+  grid-template-columns: repeat(4,25%);
+  padding: 1%;
+  text-align: center;
+  border: 2px solid #474747;
+  border-radius: 15px;
+  margin-bottom: 5%;
+  }
+
+.example img {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.example p {
+  font-size: 20px;
+  align-self: center;
+}
+
+hr{
+  width: 90%;
+  background-color: #474747;
+  border: 2px solid #474747;
+  margin-bottom: 0%;
+}
+
+.start-game{
+  margin-top: 40px;
+}
+
+button{
+  cursor: pointer;
+}
+
+#lastColumn{
+  font-size: 30px;
+}
+
+/*ipad*/
+@media screen and (min-width: 768px) and (max-width: 1199px){
+body{
+  width: 100%;
+}
+.start, .howToPlay{
+    max-width: 500px;
+    margin: 0 auto;
+}
+.preview{
+  grid-template-columns: repeat(2,50%);
+}
+.start{
+  left: 0;
+  right: 0;
+}
+.words{
+  width: 90%;
+}
+.instruction{
+    max-height: 80vh;
+}
+.instruction::-webkit-scrollbar {
+    width: 0px;
+}
+.instruction::-webkit-scrollbar-track {
+    box-shadow: 0px;
+}
+.instruction::-webkit-scrollbar-thumb {
+    background-color: none;
+    outline: 0px;
+}
+.startButton, .startGame, .nextButton{
+    max-width: 250px;
+}
+.startButton{
+    max-width: 250px;
+}
+}
+
+
+
+/*desktop*/
+@media screen and (min-width:1200px){
+body{
+  width: 100%;
+}
+.start, .howToPlay{
+    max-width: 450px;
+    margin: 0 auto;
+}
+.instruction{
+  max-height: 60vh;
+}
+.start{
+  left: 0;
+  right: 0;
+}
+.game-title{
+  margin-top: 0;
+}
+.title{
+  width: 80%;
+}
+.preview{
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+/* .words{
+  width: 50%;
+  } */
+.startButton,.restart,.home{
+    max-width: 250px;
+    padding: 4% 3%;
+}
+}
+
+@media screen and (max-width:767px){
+.startButton,.restart,.home{
+  width: calc(100% - 80px);
+  justify-content: center;
+  align-items: center;
+}
+
+}
