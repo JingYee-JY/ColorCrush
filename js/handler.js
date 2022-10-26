@@ -1,9 +1,11 @@
 var DEBUG = false;
 
+const correct = document.getElementById("correct")
+
 // By default, the first board loaded by your page will be the same 
 // each time you load (which is accomplished by "seeding" the random
 // number generator. This makes testing (and grading!) easier!
-Math.seedrandom(0);
+//Math.seedrandom(0);
 
 
 // A short jQuery extension to read query parameters from the URL.
@@ -31,6 +33,7 @@ var DEFAULT_BOARD_SIZE = 6;
 var board;
 var rules;
 var score
+var totalScore
 var time
 var startGame
 
@@ -116,6 +119,8 @@ $(board).on('move', function(e, info) {
 
 // remove a candy from the board
 $(board).on('remove', function(e, info) {
+	correct.currentTime = 0
+	correct.play()
 	// Your code here.
 	var img = document.getElementById("candy-id-" + info.candy.id);
 	
@@ -146,7 +151,9 @@ $(board).on('scoreUpdate', function(e, info) {
 	var scoreLabel = document.getElementById("scoreLabel");
 	
 	$(scoreLabel).empty();
-	$(scoreLabel).append(info.score + " pt");
+	$(scoreLabel).append(info.score + " pt / " + info.totalScore + " pt");
+	
+	totalScore = info.totalScore
 
 	score = info.score
 });
@@ -306,11 +313,19 @@ $(document).on("mouseup touchend", function(evt){
 			if (rules.isMoveTypeValid(candy, "up")){
 				board.flipCandies(candy, board.getCandyInDirection(candy, "up"));
 			}
+			else{
+				wrong.currentTime = 0
+				wrong.play()
+			}
 		}
 		//down
 		else if (dragDropInfo.initCol == col && dragDropInfo.initRow+1 == row){
 			if (rules.isMoveTypeValid(candy, "down")){
 				board.flipCandies(candy, board.getCandyInDirection(candy, "down"));
+			}
+			else{
+				wrong.currentTime = 0
+				wrong.play()
 			}
 		}
 		//left
@@ -318,12 +333,24 @@ $(document).on("mouseup touchend", function(evt){
 			if (rules.isMoveTypeValid(candy, "left")){
 				board.flipCandies(candy, board.getCandyInDirection(candy, "left"));
 			}
+			else{
+				wrong.currentTime = 0
+				wrong.play()
+			}
 		}
 		//right
 		else if (dragDropInfo.initCol+1 == col && dragDropInfo.initRow == row){
 			if (rules.isMoveTypeValid(candy, "right")){
 				board.flipCandies(candy, board.getCandyInDirection(candy, "right"));
 			}
+			else{
+				wrong.currentTime = 0
+				wrong.play()
+			}
+		}
+		else{
+			wrong.currentTime = 0
+			wrong.play()
 		}
 		/*/////////////
 		var candy = $(img).data("candy");

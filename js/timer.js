@@ -4,13 +4,19 @@ let text = document.querySelector(".text")
 let restart = document.querySelector(".restart")
 let progress = document.querySelector(".progress")
 const body = document.querySelector("body")
+const homeButton = document.querySelector(".home")
+const clickSound = document.getElementById("click")
+const clap = document.getElementById("clap")
 
 var time
 var startGame
 
 function updateScore(){
     if(startGame == true){
-        if(score <= 0){
+        clap.currentTime = 0
+        clap.play()
+        console.log(score, totalScore)
+        if(score >= totalScore){
             startGame = false
             final.classList.remove("hide")
             icon.innerHTML = `
@@ -28,3 +34,28 @@ function updateScore(){
     }
 }
 setInterval(updateScore, 1)
+
+restart.addEventListener("click", () => {
+    playClickSound()
+    let delay = setTimeout(() => {
+        location.assign('index.html');
+    }, 200);
+})
+
+homeButton.addEventListener("click", () => {
+    playClickSound()
+    let delay = setTimeout(() => {
+        location.assign('https://gimme.sg/activations/dementia/');
+    }, 200);
+})
+
+function playClickSound(){
+    console.log(clickSound)
+    clickSound.currentTime = 0
+    clickSound.play()
+}
+
+/*prevent double tag zoom*/
+document.addEventListener('dblclick', function(event) {
+event.preventDefault();
+}, { passive: false });

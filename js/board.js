@@ -21,11 +21,15 @@
 
 var Board = function(size, pattern)
 {
+  
+
   // A unique ID for each candy.
   var candyCounter = 0;
 
   // Score, one point per candy crushed.
-  this.score = 2000;
+  this.score = 0;
+
+  this.totalScore = 2000;
 
   // boardSize is number of squares on one side of candy-board
   this.boardSize = size;
@@ -250,10 +254,15 @@ var Board = function(size, pattern)
   */
   this.addRandomCandy = function(row, col, spawnRow, spawnCol)
   {
+
+    console.log(Math.floor(Math.random() * 5) + " TESTs")
     var random_color = Math.floor(Math.random() * Candy.colors.length);
+    console.log(Candy.colors.length)
     var candy = new Candy(Candy.colors[random_color], candyCounter++);
     this.add(candy, row, col, spawnRow, spawnCol);
   }
+
+
 
   /*
   Returns the candy immediately in the direction specified by direction
@@ -315,18 +324,20 @@ var Board = function(size, pattern)
   * Resets the score
   */
   this.resetScore = function() {
-    this.score = 2000;
+    this.score = 0;
+    this.totalScore = 2000;
     startGame = true
-    $(this).triggerHandler("scoreUpdate", [{score: 2000}]);
+    $(this).triggerHandler("scoreUpdate", [{score: 0,totalScore: 2000}]);
   }
 
   /*
    * Adds some score.
    */
   this.incrementScore = function(candy, row, col) {
-    this.score -= 20;
+    this.score += 20;
     $(this).triggerHandler("scoreUpdate", [{
       score: this.score,
+      totalScore: this.totalScore,
       candy: candy,
       row: row,
       col: col
@@ -340,6 +351,9 @@ var Board = function(size, pattern)
     return this.score;
   }
 
+  this.getTotalScore = function() {
+    return this.totalScore;
+  }
 
 
   /**
