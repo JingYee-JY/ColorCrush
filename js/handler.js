@@ -1,5 +1,14 @@
 var DEBUG = false;
 
+var body = document.querySelector("body").getBoundingClientRect();
+
+if(body.width > 500){
+	var canvasWidth = 700
+}
+if(body.width < 500){
+	var canvasWidth = 320
+}
+
 const correct = document.getElementById("correct")
 
 // By default, the first board loaded by your page will be the same 
@@ -80,7 +89,7 @@ $(board).on('add', function(e, info) {
 	
 	$(img).attr("data-position", candy.col + "-" + candy.row);
 	
-	var candySize = 320/board.boardSize;
+	var candySize = canvasWidth/board.boardSize;
 	
 	var top = candy.row * candySize;
 	var left = candy.col * candySize;
@@ -105,7 +114,7 @@ $(board).on('move', function(e, info) {
 	
 	$(img).attr("data-position", info.toCol + "-" + info.toRow);
 	
-	var candySize = 320/board.boardSize;
+	var candySize = canvasWidth/board.boardSize;
 	
 	var top = info.toRow * candySize;
 	var left = info.toCol * candySize;
@@ -206,7 +215,7 @@ $(document).on("touchstart", "#canvas", function(evt){
 $(document).on("mousedown touchstart", "#canvas", function(evt){
 	//ClearCanvas();
 	if ($("img").is(':animated') == false){
-		var candySize = 320/board.boardSize;
+		var candySize = canvasWidth/board.boardSize;
 		var xCoord, yCoord;
 		
 		if (evt.type == "mousedown"){
@@ -281,7 +290,7 @@ $(document).on("mouseup touchend", function(evt){
 	if (dragDropInfo != null){
 		ClearCanvas();
 		
-		var candySize = 320/board.boardSize;
+		var candySize = canvasWidth/board.boardSize;
 		var xCoord, yCoord;
 		
 		if (evt.type == "mouseup"){
@@ -380,12 +389,12 @@ function DrawArrow(){
 	
 	var canvas = document.getElementById("canvas");
 	var ctx = canvas.getContext('2d');
-	ctx.clearRect(0,0,320,320);
+	ctx.clearRect(0,0,canvasWidth,canvasWidth);
 	
 	var col = validMove.candy.col;
 	var row = validMove.candy.row;
 	
-	var candySize = 320/board.boardSize;
+	var candySize = canvasWidth/board.boardSize;
 	var squareSize = candySize/2;
 	
 	var x = (col+1) * candySize - squareSize;
@@ -430,7 +439,7 @@ function DrawArrow(){
 function ClearCanvas(){
 	var canvas = document.getElementById("canvas");
 	var ctx = canvas.getContext('2d');
-	ctx.clearRect(0,0,320,320);
+	ctx.clearRect(0,0,canvasWidth,canvasWidth);
 }
 
 

@@ -192,6 +192,11 @@ button{
   font-size: 30px;
 }
 
+canvas{
+  width: 320px;
+  height: 320px;
+}
+
 /*ipad*/
 @media screen and (min-width: 768px) and (max-width: 1199px){
 body{
@@ -230,6 +235,23 @@ body{
 .startButton{
     max-width: 250px;
 }
+#gameBoard{
+  width: 700px;
+  height: 700px;
+  left: 0;
+}
+#canvas{
+  width: 700px;
+  height: 700px;
+  left: 0;
+}
+#scoreLabel, #goalLabel, #lastColumn {
+  font-size: 50px;
+}
+#lastColumn{
+  width: 700px;
+}
+
 }
 
 
